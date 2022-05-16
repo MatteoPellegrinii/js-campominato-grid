@@ -40,7 +40,7 @@ function createUNiqueRandomNUm(numItems, min, max) {
 }
 
 function getrandomnumminmax (rangemin, rangemax) {
-    let result = Math.floor(Math.random()* (rangemax - rangemin));
+    let result = Math.floor(Math.random() * (rangemax - rangemin));
 
     return result;
 }
