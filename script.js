@@ -9,20 +9,17 @@ const createmyelement = () => {
 const myNewArrRandom = createUNiqueRandomNUm (64, 1, 64);
 console.log(myNewArrRandom);
 
-for (let i = 0; i < myNewArrRandom.lenght; i++) {
+for (let i = 0; i < myNewArrRandom.length; i++) {
     const divEL = createmyelement();
 
-    let Arritem =  myNewArrRandom[i];
-
-    divEL.append(Arritem);
+    let Arritem = myNewArrRandom[i];
+    console.log(Arritem);
 
     divEL.addEventListener("click",
         function(){
             this.classList.add("clicked");
         }
-    
     )
-
     gridEl.append(divEL);
 }
 
@@ -39,8 +36,8 @@ function createUNiqueRandomNUm(numItems, min, max) {
     return ArrInt
 }
 
-function getrandomnumminmax (rangemin, rangemax) {
-    let result = Math.floor(Math.random() * (rangemax - rangemin));
+function getrandomnumminmax (Rangemin, Rangemax) {
+    let result = Math.floor(Math.random() * (Rangemax- Rangemin+1)) + Rangemin ;
 
     return result;
 }
