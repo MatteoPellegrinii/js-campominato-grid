@@ -23,7 +23,6 @@ for (let i = 0; i < myNewArrRandom.length; i++) {
     gridEl.append(divEL);
 }
 
-
 function createUNiqueRandomNUm(numItems, min, max) {
     const ArrInt = [];
     while ( ArrInt.length < numItems){
@@ -40,4 +39,22 @@ function getrandomnumminmax (Rangemin, Rangemax) {
     let result = Math.floor(Math.random() * (Rangemax- Rangemin+1)) + Rangemin ;
 
     return result;
+}
+
+switch (chooselevel) {
+    case 0:
+        default: 
+            nCells = 100;
+            classCells = "square10"
+    break
+
+    case 1:
+        nCells = 81;
+        classCells = "square9"
+    break;
+
+    case 2:
+        nCells = 49;
+        classCells = "square7"
+    break;
 }
