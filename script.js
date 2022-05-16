@@ -11,9 +11,7 @@ console.log(myNewArrRandom);
 
 for (let i = 0; i < myNewArrRandom.length; i++) {
     const divEL = createmyelement();
-
-    let Arritem = myNewArrRandom[i];
-    console.log(Arritem);
+    divEL.innerHTML = myNewArrRandom[i];
 
     divEL.addEventListener("click",
         function(){
