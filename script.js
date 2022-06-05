@@ -1,58 +1,63 @@
-const gridEl = document.getElementById('grid');
 
-const createmyelement = () => {
-    const node = document.createElement("div");
-    node.className = "square";
-    return node;
-}
+const field = document.getElementById("field_container");
 
-const myNewArrRandom = createUNiqueRandomNUm (64, 1, 64);
-console.log(myNewArrRandom);
 
-for (let i = 0; i < myNewArrRandom.length; i++) {
-    const divEL = createmyelement();
-    divEL.innerHTML = myNewArrRandom[i];
 
-    divEL.addEventListener("click",
-        function(){
-            this.classList.add("clicked");
+const easyField = document.getElementById("easy");
+
+const mediumField = document.getElementById("medium");
+
+const hardField = document.getElementById("hard");
+
+
+
+easyField.addEventListener("click", 
+    function () {
+
+        clearField();
+        fieldGen(100, " easy_slot");
+    }
+)
+
+mediumField.addEventListener("click", 
+    function () {
+
+        clearField();
+        fieldGen(81, " medium_slot");
+    }
+)
+
+hardField.addEventListener("click", 
+    function () {
+
+        clearField();
+        fieldGen(49, " hard_slot");
+    }
+)
+
+
+function fieldGen(nSlot, slotClass) {
+    for (let i = 0; i < nSlot; i++) {
+
+        const slot = document.createElement("div");
+        slot.className = "base_slot" + slotClass;
+
+        field.append(slot)
+
+        slot.addEventListener("click",
+        function() {
+            this.classList.add("checked");
         }
-    )
-    gridEl.append(divEL);
-}
-
-function createUNiqueRandomNUm(numItems, min, max) {
-    const ArrInt = [];
-    while ( ArrInt.length < numItems){
-        let randomnumint = getrandomnumminmax(min,max);
-        if (!ArrInt.includes(randomnumint)){
-            ArrInt.push(randomnumint);
-        }
+        )
     }
 
-    return ArrInt
 }
 
-function getrandomnumminmax (Rangemin, Rangemax) {
-    let result = Math.floor(Math.random() * (Rangemax- Rangemin+1)) + Rangemin ;
 
-    return result;
-}
-
-switch (chooselevel) {
-    case 0:
-        default: 
-            nCells = 100;
-            classCells = "square10"
-    break
-
-    case 1:
-        nCells = 81;
-        classCells = "square9"
-    break;
-
-    case 2:
-        nCells = 49;
-        classCells = "square7"
-    break;
+function clearField() {
+    let oldSlot = field.lastElementChild;
+    while (oldSlot) {
+        field.removeChild(oldSlot);
+        oldSlot = field.lastElementChild;
+    }
 }
